@@ -6,6 +6,7 @@ export default function Home() {
       <h1 className="text-4xl font-bold text-center">
         This is a landing of <span className='text-blue-500'>Perla Project</span>
       </h1>
+      <h2>Anton-test-feature</h2>
     </main>
   )
 }
