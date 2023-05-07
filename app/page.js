@@ -8,7 +8,7 @@ export default function Home() {
         <span className='text-blue-500'>Perla Project</span>
       </h1>
       <h2>Anton-test-feature</h2>
-      <h3>Rostyk feature</h3>
+      <h3>Rostyk feature ssdfsdfsf</h3>
     </main>
   );
 }
