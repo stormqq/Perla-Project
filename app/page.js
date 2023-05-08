@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Box, FormControlLabel, Typography } from '@mui/material';
 import PopupTextfield from '@/components/landing/PopupTextField';
 import AuthorBtn from '@/components/landing/AuthorisationBtn';
@@ -10,14 +10,21 @@ import LandingDialogLabel from '@/components/landing/LandingDialogInputLabel';
 import LandingDialogSupportLabel from '@/components/landing/LangingDialogLabelSupport';
 import CLosePopupIcon from '@/components/landing/ClosePopupIcon';
 import PopupCheckbox from '@/components/landing/PopupCheckbox';
-
+import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles';
+import { createTheme } from '@mui/material/styles';
 import { Stack } from '@mui/material';
 import NavText from '@/components/landing/NavText';
 import LandingLogo from '@/components/landing/LandingLogo';
-
 import LandingMainTitle from '@/components/landing/LandingMainTitle';
 import LandingDescription from '@/components/landing/LandingDescription';
 import LandingMainBtn from '@/components/landing/LandingMainBtn';
+
+const theme = createTheme({
+  typography: {
+    fontFamily: 'Commissioner, sans-serif', // Set the global font family to Commissioner
+    fontWeight: 500,
+  },
+});
 
 export default function Landing() {
   const [loginOpen, setLoginOpen] = useState(false);
@@ -47,7 +54,7 @@ export default function Landing() {
   };
 
   return (
-    <>
+    <MuiThemeProvider theme={theme}>
       <Box
         sx={{
           display: 'flex',
@@ -200,6 +207,6 @@ export default function Landing() {
           </Box>
         </Box>
       </Box>
-    </>
+    </MuiThemeProvider>
   );
 }
