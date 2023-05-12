@@ -6,13 +6,12 @@ import { StyledSelect } from './Dropdowm';
 import MenuItem from '@mui/material/MenuItem';
 
 function ProjectStatus() {
-  const [status, setStatus] = useState('');
+  const [status, setStatus] = useState('All');
   const handleChangeStatus = (event) => {
     setStatus(event.target.value);
   };
   return (
     <FormControl sx={{ m: 1, minWidth: 120 }}>
-      <InputLabel>Show</InputLabel>
       <StyledSelect
         IconComponent={KeyboardArrowDownIcon}
         id='status-select'

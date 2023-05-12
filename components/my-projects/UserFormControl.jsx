@@ -5,22 +5,14 @@ import FormControl from '@mui/material/FormControl';
 import { StyledSelect } from './Dropdowm';
 import MenuItem from '@mui/material/MenuItem';
 import LogoutIcon from '@mui/icons-material/Logout';
-import { Box } from '@mui/material';
-
+import { Box, Typography } from '@mui/material';
 function UserFormControl() {
-  const [employee, setEmployee] = useState('');
+  const [employee, setEmployee] = useState('user');
   const handleChange = (event) => {
     setEmployee(event.target.value);
   };
   return (
     <FormControl sx={{ m: 1, minWidth: 120 }}>
-      <InputLabel>
-        <img
-          src='https://example.com/john-doe.jpg'
-          style={{ marginRight: 10 }}
-        />
-        John Doe - Developer
-      </InputLabel>
       <StyledSelect
         IconComponent={KeyboardArrowDownIcon}
         id='employee-select'
@@ -37,13 +29,35 @@ function UserFormControl() {
             transitionDuration: '3s !important',
           },
           width: '232px',
+          height: '50px',
         }}
       >
-        <MenuItem value='my-profile '>My Profile</MenuItem>
+        <MenuItem sx={{ d: 'flex' }} value='user'>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+            <img
+              src='https://randomuser.me/api/portraits/men/58.jpg'
+              style={{
+                marginRight: 10,
+                width: '36px',
+                height: '36px',
+                borderRadius: '50%',
+              }}
+            />
+            <Box>
+              <Typography sx={{ color: '#303030', fontSize: '16px' }}>
+                John Doe
+              </Typography>
+              <Typography sx={{ color: '#686868', fontSize: '14px' }}>
+                HR Manager
+              </Typography>
+            </Box>
+          </Box>
+        </MenuItem>
+        <MenuItem value='my-profile'>My Profile</MenuItem>
         <MenuItem value='plan&payment'>Plan & payment</MenuItem>
         <MenuItem value='Log out'>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-            Plan & payment
+            Log out
             <LogoutIcon />
           </Box>
         </MenuItem>

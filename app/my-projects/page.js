@@ -9,6 +9,9 @@ import UserFormControl from '@/components/my-projects/UserFormControl';
 import ProjectsHeadTitle from '@/components/my-projects/ProjectsHeadTitle';
 import MyProjectSearchField from '@/components/my-projects/MyProjectSearchField';
 import ProjectStatus from '@/components/my-projects/ProjectStatus';
+import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles';
+import { theme } from '../page';
+
 function MyProjects() {
   const [project, setProject] = useState('');
 
@@ -17,7 +20,7 @@ function MyProjects() {
     console.log(project);
   };
   return (
-    <>
+    <MuiThemeProvider theme={theme}>
       <Box
         sx={{
           maxWidth: '1440px',
@@ -88,7 +91,7 @@ function MyProjects() {
           ></Box>
         </Box>
       </Box>
-    </>
+    </MuiThemeProvider>
   );
 }
 
