@@ -49,7 +49,11 @@ function MyProjects() {
           <MyProjectsTitle></MyProjectsTitle>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: '37px' }}>
             <Modal />
-            <ProjectStatus></ProjectStatus>
+            <ProjectStatus
+              value1={'All'}
+              value2='In progress'
+              value3={'Completed'}
+            ></ProjectStatus>
             <form onSubmit={handleSubmit}>
               <MyProjectSearchField
                 placeholder='Search'

@@ -6,7 +6,7 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { useState } from 'react';
 
 export default function DatePickerValue() {
-  const [value, setValue] = useState(dayjs('2023-07-10'));
+  const [startValue, setStartValue] = useState(dayjs('2023-07-10'));
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -22,8 +22,8 @@ export default function DatePickerValue() {
           width: '367px',
         }}
         color='secondary'
-        value={value}
-        onChange={(newValue) => setValue(newValue)}
+        value={startValue}
+        onChange={(newValue) => setStartValue(newValue)}
       />
     </LocalizationProvider>
   );

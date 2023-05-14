@@ -30,6 +30,8 @@ function UserFormControl() {
           },
           width: '232px',
           height: '50px',
+          boxShadow: 0,
+          shadows: 'none',
         }}
       >
         <MenuItem sx={{ d: 'flex' }} value='user'>

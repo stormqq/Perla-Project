@@ -2,10 +2,10 @@ import { useState } from 'react';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
-import { StyledSelect } from './Dropdowm';
+import { StyledSelect } from '../my-projects/Dropdowm';
 import MenuItem from '@mui/material/MenuItem';
 
-function ProjectStatus({ value1, value2, value3 = null }) {
+function ProjectCurrency({ value1, value2, value3 = null }) {
   const [status, setStatus] = useState(value1);
   const handleChangeStatus = (event) => {
     setStatus(event.target.value);
@@ -28,7 +28,9 @@ function ProjectStatus({ value1, value2, value3 = null }) {
             transitionDuration: '3s !important',
           },
           width: '203px',
-          shadows: 'none',
+          border: '1px solid #A5A5A5',
+          borderRadius: '20px',
+          width: '160px',
         }}
       >
         <MenuItem value={value1} defaultValue={value1}>
@@ -41,4 +43,4 @@ function ProjectStatus({ value1, value2, value3 = null }) {
   );
 }
 
-export default ProjectStatus;
+export default ProjectCurrency;
