@@ -19,7 +19,12 @@ import LandingMainTitle from '@/components/landing/LandingMainTitle';
 import LandingDescription from '@/components/landing/LandingDescription';
 import LandingMainBtn from '@/components/landing/LandingMainBtn';
 
-const theme = createTheme({
+export const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#ABAFB0', // This is an orange looking color
+    },
+  },
   typography: {
     fontFamily: 'Commissioner, sans-serif', // Set the global font family to Commissioner
     fontWeight: 500,

@@ -16,7 +16,7 @@ const LandingStartBtn = styled('button')({
 function LandingMainBtn() {
   return (
     <LandingStartBtn>
-      <Link href='/myprojects'>Start</Link>
+      <Link href='/my-projects'>Start</Link>
     </LandingStartBtn>
   );
 }
