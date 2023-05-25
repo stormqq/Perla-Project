@@ -56,6 +56,22 @@ const projectSchema = new mongoose.Schema({
       required: [true, "Please provide a number of working hours"],
     },
   },
+  calendarExceptions: [
+    {
+      date: {
+        type: Date,
+        required: [true, "Please provide a date"],
+      },
+      workingHours: {
+        type: String,
+        required: [true, "Please provide a number of working hours"],
+      },
+      comment: {
+        type: String,
+        required: [true, "Please provide a comment"],
+      },
+    },
+  ],
 });
 
 export default mongoose.models.Project || mongoose.model("Project", projectSchema);

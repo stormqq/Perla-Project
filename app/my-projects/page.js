@@ -9,10 +9,12 @@ import UserFormControl from '@/components/my-projects/UserFormControl';
 import ProjectsHeadTitle from '@/components/my-projects/ProjectsHeadTitle';
 import MyProjectSearchField from '@/components/my-projects/MyProjectSearchField';
 import ProjectStatus from '@/components/my-projects/ProjectStatus';
-import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles';
-import { theme } from '../page';
-
+import useSWR from 'swr'
+import fetcher from '@/config/fetcher';
+import ProjectsList from '@/components/my-projects/ProjectsList';
 function MyProjects() {
+  const { data, error, isLoading } = useSWR('/api/projects', fetcher)
+  console.log(data);
   const [project, setProject] = useState('');
 
   const handleSubmit = (e) => {
@@ -20,7 +22,6 @@ function MyProjects() {
     console.log(project);
   };
   return (
-    <MuiThemeProvider theme={theme}>
       <Box
         sx={{
           maxWidth: '1440px',
@@ -80,22 +81,24 @@ function MyProjects() {
             borderRadius: '20px',
           }}
         >
-          <Box sx={{ display: 'flex', gap: '200px', padding: '20px 40px' }}>
+          <Box sx={{ display: 'flex', padding: '20px 40px', justifyContent: 'space-between', borderBottom: '1px solid #A5A5A5' }}>
             <ProjectsHeadTitle title='Name' sx={{ marginRight: '110px' }} />
-            <ProjectsHeadTitle title='From' sx={{ marginRight: '-50px' }} />
+            <Box sx={{
+              display: 'flex',
+              gap: '230px',
+              marginRight: '360px'
+            }}>
+            <ProjectsHeadTitle title='From'/>
             <ProjectsHeadTitle title='To' />
-            <ProjectsHeadTitle title='Status' />
-            <ProjectsHeadTitle title='Team lead' />
+            </Box>
           </Box>
-          <Box
-            sx={{
-              width: '1370px',
-              border: '1px solid #BBBBBB',
-            }}
-          ></Box>
+          {
+            isLoading && <div>Loading...</div>
+          }
+
+          <ProjectsList projects={data?.userProjects} />
         </Box>
       </Box>
-    </MuiThemeProvider>
   );
 }
 

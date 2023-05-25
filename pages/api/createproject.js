@@ -15,6 +15,7 @@ export default async function handler(req, res) {
       startDate,
       finishDate,
       workingDays,
+      calendarExceptions,
     } = req.body;
 
     const session = await getServerSession(req, res, authOptions);
@@ -28,6 +29,7 @@ export default async function handler(req, res) {
         startDate: startDate,
         finishDate: finishDate,
         workingDays: workingDays,
+        calendarExceptions: calendarExceptions,
       });
       res.status(201).json({ project });
     } catch (error) {

@@ -10,8 +10,9 @@ const TextField = styled('input')({
   color: '#969696',
 });
 
-function NameOfNewProject({project, setProject, ...props}) {
-  return <TextField onChange={(e) => setProject({...project, projectName: e.target.value})
+function NameOfNewException({exception, setException, ...props}) {
+  return <TextField placeholder='Enter name of exception' onChange={(e) =>
+    setException({ ...exception, comment: e.target.value })
 } {...props}></TextField>;
 }
-export default NameOfNewProject;
+export default NameOfNewException;

@@ -4,11 +4,11 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
-export default function DatePickerValue({project, setProject}) {
+export default function ExceptionStartDate({exception, setException}) {
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <DatePicker
+      <DatePicker 
         sx={{
           '&.Mui-focused .MuiOutlinedInput-notchedOutline, .MuiOutlinedInput-notchedOutline':
             {
@@ -20,11 +20,11 @@ export default function DatePickerValue({project, setProject}) {
           width: '367px',
         }}
         color='secondary'
-        value={project.startDate}
+        value={exception.date}
         onChange={
           (newValue) => {
-            setProject({...project, startDate: dayjs(newValue).format('DD-M-YYYY')});
-          }
+            setException({...exception, date: newValue});
+          } 
         }
       />
     </LocalizationProvider>

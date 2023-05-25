@@ -6,11 +6,19 @@ import { StyledSelect } from './Dropdowm';
 import MenuItem from '@mui/material/MenuItem';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { Box, Typography } from '@mui/material';
+import { signOut } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
+import icon from '../../public/usericon.png';
+import Image from 'next/image';
 function UserFormControl() {
+  const { data: session } = useSession();
   const [employee, setEmployee] = useState('user');
   const handleChange = (event) => {
     setEmployee(event.target.value);
   };
+
+  const userEmail = session?.user?.email;
+  const userEmailName = userEmail?.substring(0, userEmail.indexOf('@'));
   return (
     <FormControl sx={{ m: 1, minWidth: 120 }}>
       <StyledSelect
@@ -36,28 +44,22 @@ function UserFormControl() {
       >
         <MenuItem sx={{ d: 'flex' }} value='user'>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-            <img
-              src='https://randomuser.me/api/portraits/men/58.jpg'
-              style={{
-                marginRight: 10,
-                width: '36px',
-                height: '36px',
-                borderRadius: '50%',
-              }}
-            />
+            <Image src={icon} alt='user icon' width={36} height={36} style={{borderRadius: '50%'}}/>
             <Box>
               <Typography sx={{ color: '#303030', fontSize: '16px' }}>
-                John Doe
+                {userEmailName}
               </Typography>
               <Typography sx={{ color: '#686868', fontSize: '14px' }}>
-                HR Manager
+                User
               </Typography>
             </Box>
           </Box>
         </MenuItem>
-        <MenuItem value='my-profile'>My Profile</MenuItem>
-        <MenuItem value='plan&payment'>Plan & payment</MenuItem>
-        <MenuItem value='Log out'>
+        <MenuItem disabled value='my-profile'>My Profile</MenuItem>
+        <MenuItem disabled value='plan&payment'>Plan & payment</MenuItem>
+        <MenuItem onClick={
+          () => signOut()
+        } value='Log out'>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
             Log out
             <LogoutIcon />

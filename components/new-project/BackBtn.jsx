@@ -1,5 +1,6 @@
 import { styled } from '@mui/system';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
+import { useRouter } from 'next/navigation';
 const Btn = styled('button')({
   fontWeight: 500,
   fontFamily: 'Commissioner, sans-serif',
@@ -12,8 +13,11 @@ const Btn = styled('button')({
   cursor: 'pointer',
 });
 function BackBtn() {
+  const router = useRouter();
   return (
-    <Btn>
+    <Btn onClick={() => {
+      router.back();
+    }}>
       <KeyboardBackspaceIcon sx={{ marginRight: '10px' }} />
       Back
     </Btn>
