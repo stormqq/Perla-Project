@@ -5,7 +5,10 @@ import NewProjectsPopup from './NewProjDialog';
 import { AddIcon } from './AddCircleIcon';
 import PopupTitle from '../landing/LandingDialogTitle';
 import CardMainTitle from './CardTitle';
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 export default function Modal() {
+  const router = useRouter();
   const [loginOpen, setLoginOpen] = useState(false);
 
   const handleLoginOpen = () => setLoginOpen(true);
@@ -33,6 +36,7 @@ export default function Modal() {
                 backgroundColor: '#DFDFDF',
                 cursor: 'pointer',
               }}
+              onClick={() => router.push('/new-project')}
             >
               <CardMainTitle title={'Personal use'} price={'0$'} />
             </Box>

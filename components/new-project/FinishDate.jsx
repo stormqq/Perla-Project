@@ -5,7 +5,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { useState } from 'react';
 
-export default function DatePickerValueFinish() {
+export default function DatePickerValueFinish({project, setProject}) {
   const [finishValue, setFinishValue] = useState(dayjs('2023-07-10'));
 
   return (
@@ -22,8 +22,12 @@ export default function DatePickerValueFinish() {
           width: '367px',
         }}
         color='secondary'
-        value={finishValue}
-        onChange={(newValue) => setFinishValue(newValue)}
+        value={project.finishDate}
+        onChange={
+          (newValue) => {
+            setProject({...project, finishDate: dayjs(newValue).format('DD-MM-YYYY')});
+          }
+        }
       />
     </LocalizationProvider>
   );

@@ -6,6 +6,7 @@ const Title = styled(Typography)({
   fontSize: '20px',
   lineHeight: '24px',
   marginBottom: '20px',
+  fontWeight: '500',
 });
 function DaysOfWeek(props) {
   return <Title>{props.text}</Title>;
