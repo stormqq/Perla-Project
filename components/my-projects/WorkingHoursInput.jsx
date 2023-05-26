@@ -11,10 +11,9 @@ const InputHours = styled(Input)({
   borderRadius: '15px',
   fontFamily: 'Commissioner, sans-serif',
   color: '#A5A5A5',
-  "& input::-webkit-outer-spin-button, & input::-webkit-inner-spin-button": {
-    display: "none",
+  '& input::-webkit-outer-spin-button, & input::-webkit-inner-spin-button': {
+    display: 'none',
   },
-  
 });
 
 function WorkingHoursInput(props) {
@@ -28,10 +27,10 @@ function WorkingHoursInput(props) {
     <InputHours
       value={value}
       onInput={handleInput}
-      inputProps={{ min: 0, max: 24}}
+      inputProps={{ min: 0, max: 24 }}
       disableUnderline={true}
       {...props}
-      endAdornment="h"
+      endAdornment='h'
     />
   );
 }
